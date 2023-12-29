@@ -1,11 +1,15 @@
+import { useContext } from "react";
+import { CreatContext } from "../store/shoping";
+
 export default function Product({
   id,
   image,
   title,
   price,
   description,
-  onAddToCart,
 }) {
+
+  const { addItemToCart} = useContext(CreatContext)
   return (
     <article className="product">
       <img src={image} alt={title} />
@@ -16,7 +20,7 @@ export default function Product({
           <p>{description}</p>
         </div>
         <p className='product-actions'>
-          <button onClick={() => onAddToCart(id)}>Add to Cart</button>
+          <button onClick={() => addItemToCart(id)}>Add to Cart</button>
         </p>
       </div>
     </article>
